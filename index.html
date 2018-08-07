@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simple Rock-Paper-Scissors</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function computerPlay() {
+        let rand = options[Math.floor(Math.random() * options.length)];
+        return rand
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        switch (playerSelection) {
+            case 'rock': 
+                if (computerSelection == 'rock') {
+                    return 'tie'
+                } else if (computerSelection == 'paper') {
+                    return 'lose'
+                } else {
+                    return 'win'
+                }
+            case 'paper': 
+                if (computerSelection == 'rock') {
+                        return 'win'
+                    } else if (computerSelection == 'paper') {
+                        return 'tie'
+                    } else {
+                        return 'lose'
+                    }
+            case 'scissors': 
+                if (computerSelection == 'rock') {
+                        return 'lose'
+                    } else if (computerSelection == 'paper') {
+                        return 'win'
+                    } else {
+                        return 'tie'
+                    }
+        }
+    }
+
+    function game() { 
+        for (i = 0; i < 5; i++) {
+            let playerSelection = prompt("Please enter your choice");
+
+            if (playerSelection != null) {
+                if (options.includes(playerSelection.toLowerCase())) {
+                    playerSelectionLower = playerSelection.toLowerCase();
+                    let computerSelection = computerPlay();
+
+                    console.log("Game number: " + (i+1))
+                    console.log("The player's choice: " + playerSelection)
+                    console.log("The computer's choice: " + computerSelection)
+                    console.log(playRound(playerSelection, computerSelection))
+                } else {
+                    alert("Please enter a valid option");
+                    i--;
+                }
+            } else {
+                alert("Please enter something");
+                i--;
+            }
+        }
+    }
+
+    let options= ['rock', 'paper', 'scissors'];
+    game();
+</script>
