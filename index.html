@@ -46,8 +46,8 @@
         }
     }
 
-    function game() { 
-        for (i = 0; i < 5; i++) {
+    function game(amountOfGames) { 
+        for (i = 0; i < (amountOfGames); i++) {
             let playerSelection = prompt("Please enter your choice");
 
             if (playerSelection != null) {
@@ -70,6 +70,18 @@
         }
     }
 
+    function play() {
+        do {
+            var selection = parseInt(window.prompt("Please enter a number from 1 to 100", ""), 10);
+        } while(isNaN(selection) || selection > 100 || selection < 1);
+        
+        if (typeof selection == 'number') {
+            game(selection);
+        } else { 
+            alert('Please enter a number!')
+        }
+    }
+
     let options= ['rock', 'paper', 'scissors'];
-    game();
+    play()
 </script>
